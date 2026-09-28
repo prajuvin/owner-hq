@@ -3,7 +3,7 @@
   "use strict";
   var HQ = window.HQ, $ = function (id) { return document.getElementById(id); };
   var KEY = "owner-hq-v1";
-  var COLORS = ["#1F7A5C", "#2F5BD3", "#C2410C", "#7C3AED", "#A16207", "#0E7490", "#BE185D", "#4D7C0F"];
+  var COLORS = ["#0E7453", "#2B5FA8", "#C0572C", "#8A6A12", "#0E7490", "#9F3A55", "#4D7C0F", "#52525B"];
   var KIND = { task: "To-do", call: "Call back", follow: "Follow up" };
   var GROUPS = [["overdue", "Overdue"], ["today", "Today"], ["upcoming", "Coming up"], ["someday", "No date"], ["done", "Done"]];
   var S = load(), pending = null;
@@ -151,18 +151,18 @@
     var x = function (i) { return L + (weeks === 1 ? 0 : (i * pw) / (weeks - 1)); }, y = function (v) { return Tp + ph - (v / top) * ph; };
     var svg = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-labelledby="chartT"><title id="chartT">Money in per week for each business, last ' + weeks + " weeks</title>";
     for (var g = 0; g <= top + 0.001; g += step) {
-      svg += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(g) + '" y2="' + y(g) + '" stroke="#D7E7DF" stroke-width="1"/>';
-      svg += '<text x="' + (L - 8) + '" y="' + (y(g) + 5) + '" text-anchor="end" font-size="13" fill="#4A6469">' + short(g) + "</text>";
+      svg += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(g) + '" y2="' + y(g) + '" stroke="#E4E4E2" stroke-width="1"/>';
+      svg += '<text x="' + (L - 8) + '" y="' + (y(g) + 5) + '" text-anchor="end" font-size="13" fill="#63636B">' + short(g) + "</text>";
     }
     series[0].w.forEach(function (wk, i) {
       if (i % (weeks > 8 ? 3 : 2) === 0 || i === weeks - 1)
-        svg += '<text x="' + x(i) + '" y="' + (H - 12) + '" text-anchor="' + (i === weeks - 1 ? "end" : i === 0 ? "start" : "middle") + '" font-size="13" fill="#4A6469">' + new Date(wk.start + "T12:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" }) + "</text>";
+        svg += '<text x="' + x(i) + '" y="' + (H - 12) + '" text-anchor="' + (i === weeks - 1 ? "end" : i === 0 ? "start" : "middle") + '" font-size="13" fill="#63636B">' + new Date(wk.start + "T12:00:00").toLocaleDateString("en-CA", { month: "short", day: "numeric" }) + "</text>";
     });
     series.forEach(function (s) {
       var pts = s.w.map(function (wk, i) { return x(i).toFixed(1) + "," + y(wk.total).toFixed(1); });
-      svg += '<polyline fill="none" stroke="' + s.b.color + '" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" points="' + pts.join(" ") + '"/>';
+      svg += '<polyline fill="none" stroke="' + s.b.color + '" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="' + pts.join(" ") + '"/>';
       var last = s.w[s.w.length - 1];
-      svg += '<circle cx="' + x(weeks - 1) + '" cy="' + y(last.total) + '" r="5" fill="' + s.b.color + '"/>';
+      svg += '<circle cx="' + x(weeks - 1) + '" cy="' + y(last.total) + '" r="6" fill="#fff" stroke="' + s.b.color + '" stroke-width="3"/>';
     });
     svg += "</svg>";
     var leg = '<div class="legend">' + series.map(function (s) { return '<span><i style="background:' + s.b.color + '"></i>' + esc(s.b.name) + "</span>"; }).join("") + "</div>";

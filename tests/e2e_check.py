@@ -14,6 +14,10 @@ fails, URL = [], f"http://localhost:{PORT}/"
 def check(cond, msg):
     if not cond: fails.append(msg)
 
+def settle(pg):
+    """Wait for entry animations to finish so contrast is measured on the page at rest."""
+    pg.wait_for_function("document.getAnimations().every(a => a.playState !== 'running' || a.effect.getComputedTiming().iterations === Infinity)", timeout=5000)
+
 def node_total(pg):
     """Recompute the combined 'money in' with core.js inside the page and compare with what's shown."""
     return pg.evaluate("""() => { const S = JSON.parse(localStorage.getItem('owner-hq-v1')); const d = new Date();
@@ -65,7 +69,7 @@ try:
             pg.select_option("#taskFilter", label="Test Bakery")
             check(pg.locator(".task").count() == 1, f"{width}: filter by business failed")
             pg.check(".task input[type=checkbox]"); check("done (1)" in pg.inner_text("#taskList").lower(), f"{width}: completing a task failed")
-            check("To-do Renew" in pg.inner_text("#taskList"), f"{width}: type label runs into the title")
+            check("to-do renew" in pg.inner_text("#taskList").lower(), f"{width}: type label runs into the title")
             pg.select_option("#taskFilter", "all")
             # 4. training
             pg.click("#t3")
@@ -93,14 +97,14 @@ try:
             # a11y + layout
             if axe:
                 for tab in ("#t1", "#t2", "#t3"):
-                    pg.click(tab); pg.add_script_tag(content=axe)
+                    pg.click(tab); settle(pg); pg.add_script_tag(content=axe)
                     v = pg.evaluate("axe.run(document,{runOnly:['wcag2a','wcag2aa']}).then(r=>r.violations.map(v=>v.id+' ('+v.nodes.length+'): '+v.nodes[0].target))")
                     check(not v, f"{width} a11y {tab}: {v}")
             for tab in ("#t1", "#t2", "#t3"):
                 pg.click(tab); check(not pg.evaluate("document.documentElement.scrollWidth>window.innerWidth"), f"{width}: sideways scroll on {tab}")
-            pg.click("#t1"); pg.screenshot(path=f"/tmp/hq_{width}_biz.png", full_page=True)
-            pg.click("#t2"); pg.screenshot(path=f"/tmp/hq_{width}_tasks.png", full_page=True)
-            pg.click("#t3"); pg.screenshot(path=f"/tmp/hq_{width}_team.png", full_page=True)
+            pg.click("#t1"); settle(pg); pg.screenshot(path=f"/tmp/hq_{width}_biz.png", full_page=True)
+            pg.click("#t2"); settle(pg); pg.screenshot(path=f"/tmp/hq_{width}_tasks.png", full_page=True)
+            pg.click("#t3"); settle(pg); pg.screenshot(path=f"/tmp/hq_{width}_team.png", full_page=True)
             check(not errs, f"{width}: JS errors {errs}")
             print(f"{width}px flow done")
             ctx.close()
