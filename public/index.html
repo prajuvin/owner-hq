@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner HQ</title>
+<meta name="description" content="One place to see all your businesses: sales from every portal, one to-do and call list, and simple AI training for your team.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="wrap" id="main">
+  <header class="top">
+    <div>
+      <h1>Owner HQ</h1>
+      <p class="tag">All your businesses in one place.</p>
+    </div>
+    <button class="go ghost small" id="openBackup" type="button" aria-expanded="false" aria-controls="backup">Backup</button>
+  </header>
+  <p class="privacy">Private by design: everything you add stays in this browser, on this device. Nothing is uploaded anywhere.</p>
+
+  <section class="card backup" id="backup" hidden aria-labelledby="backupH">
+    <h2 id="backupH">Backup and move</h2>
+    <p>Save a backup file to keep your data safe, or to open it on another computer.</p>
+    <div class="row wrap-row">
+      <button class="go" id="saveBackup" type="button">Save a backup file</button>
+      <label class="go ghost filebtn" for="loadBackup">Open a backup file</label>
+      <input type="file" id="loadBackup" accept=".json,application/json" class="sr">
+      <button class="go danger" id="startOver" type="button">Start over</button>
+    </div>
+    <div class="confirm" id="confirmReset" hidden>
+      <p><b>Delete everything?</b> Your businesses, to-dos, and team progress will be removed from this browser.</p>
+      <div class="row wrap-row"><button class="go danger" id="yesReset" type="button">Yes, delete everything</button><button class="go ghost" id="noReset" type="button">Keep my data</button></div>
+    </div>
+    <p class="status" id="backupMsg" role="status"></p>
+  </section>
+
+  <div class="steps" role="tablist" aria-label="Sections">
+    <button class="step" role="tab" id="t1" aria-controls="p1" aria-selected="true" data-p="p1">My businesses<small>money in and out</small></button>
+    <button class="step" role="tab" id="t2" aria-controls="p2" aria-selected="false" data-p="p2">To-do and calls<small>one list for all</small></button>
+    <button class="step" role="tab" id="t3" aria-controls="p3" aria-selected="false" data-p="p3">Team AI training<small>short lessons</small></button>
+  </div>
+
+  <!-- 1. BUSINESSES -->
+  <section id="p1" role="tabpanel" aria-labelledby="t1">
+    <div class="card" id="welcome" hidden>
+      <h2>Let's add your first business</h2>
+      <p>Download a sales or transactions file from any portal you use, like Square, QuickBooks, Shopify, or your bank, and add it below. We figure out the columns for you.</p>
+      <p>Just looking? <button class="linkish" id="loadExamples" type="button">Try it with 3 example businesses</button></p>
+    </div>
+
+    <div id="dash">
+      <div class="bar">
+        <label for="period" class="inline">Show the last</label>
+        <select id="period"><option value="7">7 days</option><option value="30" selected>30 days</option><option value="90">90 days</option></select>
+      </div>
+      <div class="totals" id="totals" aria-live="polite"></div>
+      <div id="alerts" class="alerts"></div>
+      <div class="card chartcard" id="chartCard">
+        <h2>Money in, week by week</h2>
+        <div id="chart"></div>
+        <details><summary>See the numbers</summary><div class="tablewrap" id="chartTable"></div></details>
+      </div>
+      <div class="bizgrid" id="bizList"></div>
+    </div>
+
+    <div class="card" id="addBiz">
+      <h2 id="addH">Add a business</h2>
+      <label for="bizName">Business name</label>
+      <input id="bizName" autocomplete="off" placeholder="Sunrise Nails">
+      <label for="bizFile">Sales or transactions file (.csv)</label>
+      <input type="file" id="bizFile" accept=".csv,text/csv">
+      <p class="hint">In most portals this is under Reports, then Export or Download, then CSV.</p>
+      <div id="mapper" hidden>
+        <p class="found" id="foundMsg"></p>
+        <div class="two">
+          <div><label for="mapDate">Which column is the date?</label><select id="mapDate"></select></div>
+          <div><label for="mapAmount">Which column is the money?</label><select id="mapAmount"></select></div>
+        </div>
+        <label for="mapKind">Which column says sale or expense? <span class="opt">(optional)</span></label>
+        <select id="mapKind"></select>
+        <p class="hint" id="previewMsg"></p>
+      </div>
+      <p class="err" id="bizErr" role="alert" hidden></p>
+      <button class="go wide" id="saveBiz" type="button">Add this business</button>
+      <input type="hidden" id="replaceId">
+    </div>
+  </section>
+
+  <!-- 2. TASKS -->
+  <section id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <div class="card">
+      <h2>Add to the list</h2>
+      <label for="taskTitle">What needs doing?</label>
+      <input id="taskTitle" autocomplete="off" placeholder="Call back Maria about the wedding order">
+      <div class="two">
+        <div><label for="taskKind">Type</label>
+          <select id="taskKind"><option value="task">To-do</option><option value="call">Call back</option><option value="follow">Follow up</option></select></div>
+        <div><label for="taskBiz">For which business?</label><select id="taskBiz"></select></div>
+      </div>
+      <div class="two">
+        <div><label for="taskDue">When? <span class="opt">(optional)</span></label><input type="date" id="taskDue"></div>
+        <div><label for="taskPhone">Phone or email <span class="opt">(optional)</span></label><input id="taskPhone" autocomplete="off"></div>
+      </div>
+      <p class="err" id="taskErr" role="alert" hidden></p>
+      <button class="go wide" id="addTask" type="button">Add to the list</button>
+    </div>
+    <div class="bar">
+      <label for="taskFilter" class="inline">Show</label>
+      <select id="taskFilter"></select>
+    </div>
+    <div id="taskList" aria-live="polite"></div>
+  </section>
+
+  <!-- 3. TRAINING -->
+  <section id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <div class="card intro">
+      <h2>Short AI lessons for your team</h2>
+      <p>Six five-minute lessons on using AI safely at work, plus your own step-by-step procedures. Each person ticks off what they've learned, so you can see who is ready.</p>
+    </div>
+    <div class="card">
+      <h2>Add a team member</h2>
+      <div class="two">
+        <div><label for="personName">Name</label><input id="personName" autocomplete="off" placeholder="Jordan"></div>
+        <div><label for="personBiz">Works at</label><select id="personBiz"></select></div>
+      </div>
+      <p class="err" id="personErr" role="alert" hidden></p>
+      <button class="go wide" id="addPerson" type="button">Add team member</button>
+    </div>
+    <div id="people"></div>
+    <div id="lessonView" class="card" hidden tabindex="-1"></div>
+    <div class="card">
+      <h2>Your own procedures</h2>
+      <p>Write the steps for a job the way you'd explain it to a new person, like opening the shop or handling a refund.</p>
+      <label for="procTitle">Procedure name</label>
+      <input id="procTitle" autocomplete="off" placeholder="How we handle a refund">
+      <label for="procBiz">For which business?</label>
+      <select id="procBiz"></select>
+      <label for="procSteps">Steps, one per line</label>
+      <textarea id="procSteps" placeholder="Check the receipt&#10;Refund to the same card&#10;Write it in the refund book"></textarea>
+      <p class="err" id="procErr" role="alert" hidden></p>
+      <button class="go wide" id="addProc" type="button">Save procedure</button>
+      <div id="procList"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by <a href="https://github.com/prajuvin">Praju</a> at YHWH Digital. <a href="https://github.com/prajuvin/owner-hq">Source code</a>.</p>
+  </footer>
+</div>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
