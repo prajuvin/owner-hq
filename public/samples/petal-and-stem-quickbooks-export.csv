@@ -1,0 +1,99 @@
+Date,Transaction Type,Num,Name,Memo,Amount
+2026-06-23,Sales Receipt,1001,Daily sales,Bouquets,401.58
+2026-06-23,Expense,,Ontario Flower Growers,Weekly stems,458.37
+2026-06-24,Sales Receipt,1002,Daily sales,Bouquets,508.52
+2026-06-25,Sales Receipt,1003,Daily sales,Bouquets,408.67
+2026-06-26,Sales Receipt,1004,Daily sales,Bouquets,420.21
+2026-06-27,Sales Receipt,1005,Daily sales,Bouquets,440.29
+2026-06-28,Sales Receipt,1006,Daily sales,Bouquets,351.16
+2026-06-30,Sales Receipt,1007,Daily sales,Bouquets,429.64
+2026-06-30,Expense,,Ontario Flower Growers,Weekly stems,468.18
+2026-07-01,Sales Receipt,1008,Daily sales,Bouquets,496.47
+2026-07-02,Sales Receipt,1009,Daily sales,Bouquets,337.24
+2026-07-03,Sales Receipt,1010,Daily sales,Bouquets,387.54
+2026-07-04,Sales Receipt,1011,Daily sales,Bouquets,339.74
+2026-07-05,Sales Receipt,1012,Daily sales,Bouquets,510.16
+2026-07-07,Sales Receipt,1013,Daily sales,Bouquets,487.55
+2026-07-07,Expense,,Ontario Flower Growers,Weekly stems,385.86
+2026-07-08,Sales Receipt,1014,Daily sales,Bouquets,558.65
+2026-07-09,Sales Receipt,1015,Daily sales,Bouquets,557.13
+2026-07-10,Sales Receipt,1016,Daily sales,Bouquets,485.05
+2026-07-11,Sales Receipt,1017,Daily sales,Bouquets,478.07
+2026-07-12,Sales Receipt,1018,Daily sales,Bouquets,369.15
+2026-07-14,Sales Receipt,1019,Daily sales,Bouquets,337.70
+2026-07-14,Expense,,Ontario Flower Growers,Weekly stems,453.97
+2026-07-15,Sales Receipt,1020,Daily sales,Bouquets,350.22
+2026-07-16,Sales Receipt,1021,Daily sales,Bouquets,384.14
+2026-07-17,Sales Receipt,1022,Daily sales,Bouquets,398.75
+2026-07-18,Sales Receipt,1023,Daily sales,Bouquets,347.71
+2026-07-19,Sales Receipt,1024,Daily sales,Bouquets,458.02
+2026-07-21,Sales Receipt,1025,Daily sales,Bouquets,456.25
+2026-07-21,Expense,,Ontario Flower Growers,Weekly stems,497.94
+2026-07-22,Sales Receipt,1026,Daily sales,Bouquets,478.26
+2026-07-23,Sales Receipt,1027,Daily sales,Bouquets,511.31
+2026-07-24,Sales Receipt,1028,Daily sales,Bouquets,477.57
+2026-07-25,Sales Receipt,1029,Daily sales,Bouquets,521.56
+2026-07-26,Sales Receipt,1030,Daily sales,Bouquets,470.82
+2026-07-28,Sales Receipt,1031,Daily sales,Bouquets,428.22
+2026-07-28,Expense,,Ontario Flower Growers,Weekly stems,519.67
+2026-07-29,Sales Receipt,1032,Daily sales,Bouquets,618.05
+2026-07-30,Sales Receipt,1033,Daily sales,Bouquets,579.82
+2026-07-31,Sales Receipt,1034,Daily sales,Bouquets,547.33
+2026-08-01,Sales Receipt,1035,Daily sales,Bouquets,445.52
+2026-08-02,Sales Receipt,1036,Daily sales,Bouquets,424.61
+2026-08-04,Sales Receipt,1037,Daily sales,Bouquets,444.18
+2026-08-04,Expense,,Ontario Flower Growers,Weekly stems,389.83
+2026-08-05,Sales Receipt,1038,Daily sales,Bouquets,574.86
+2026-08-06,Sales Receipt,1039,Daily sales,Bouquets,478.11
+2026-08-07,Sales Receipt,1040,Daily sales,Bouquets,601.54
+2026-08-08,Sales Receipt,1041,Daily sales,Bouquets,478.31
+2026-08-09,Sales Receipt,1042,Daily sales,Bouquets,637.15
+2026-08-11,Sales Receipt,1043,Daily sales,Bouquets,611.77
+2026-08-11,Expense,,Ontario Flower Growers,Weekly stems,380.08
+2026-08-12,Sales Receipt,1044,Daily sales,Bouquets,437.13
+2026-08-13,Sales Receipt,1045,Daily sales,Bouquets,634.35
+2026-08-14,Sales Receipt,1046,Daily sales,Bouquets,513.60
+2026-08-15,Sales Receipt,1047,Daily sales,Bouquets,659.22
+2026-08-16,Sales Receipt,1048,Daily sales,Bouquets,497.27
+2026-08-18,Sales Receipt,1049,Daily sales,Bouquets,408.93
+2026-08-18,Expense,,Ontario Flower Growers,Weekly stems,468.12
+2026-08-19,Sales Receipt,1050,Daily sales,Bouquets,612.17
+2026-08-20,Sales Receipt,1051,Daily sales,Bouquets,468.64
+2026-08-21,Sales Receipt,1052,Daily sales,Bouquets,417.88
+2026-08-22,Sales Receipt,1053,Daily sales,Bouquets,490.51
+2026-08-23,Sales Receipt,1054,Daily sales,Bouquets,675.76
+2026-08-25,Sales Receipt,1055,Daily sales,Bouquets,620.75
+2026-08-25,Expense,,Ontario Flower Growers,Weekly stems,396.52
+2026-08-26,Sales Receipt,1056,Daily sales,Bouquets,472.88
+2026-08-27,Sales Receipt,1057,Daily sales,Bouquets,431.85
+2026-08-28,Sales Receipt,1058,Daily sales,Bouquets,421.34
+2026-08-29,Sales Receipt,1059,Daily sales,Bouquets,641.96
+2026-08-30,Sales Receipt,1060,Daily sales,Bouquets,459.69
+2026-09-01,Sales Receipt,1061,Daily sales,Bouquets,577.87
+2026-09-01,Expense,,Ontario Flower Growers,Weekly stems,442.64
+2026-09-02,Sales Receipt,1062,Daily sales,Bouquets,468.86
+2026-09-03,Sales Receipt,1063,Daily sales,Bouquets,634.49
+2026-09-04,Sales Receipt,1064,Daily sales,Bouquets,454.24
+2026-09-05,Sales Receipt,1065,Daily sales,Bouquets,612.35
+2026-09-06,Sales Receipt,1066,Daily sales,Bouquets,453.20
+2026-09-08,Sales Receipt,1067,Daily sales,Bouquets,550.40
+2026-09-08,Expense,,Ontario Flower Growers,Weekly stems,409.80
+2026-09-09,Sales Receipt,1068,Daily sales,Bouquets,505.69
+2026-09-10,Sales Receipt,1069,Daily sales,Bouquets,725.40
+2026-09-11,Sales Receipt,1070,Daily sales,Bouquets,675.81
+2026-09-12,Sales Receipt,1071,Daily sales,Bouquets,522.00
+2026-09-13,Sales Receipt,1072,Daily sales,Bouquets,706.31
+2026-09-15,Sales Receipt,1073,Daily sales,Bouquets,498.11
+2026-09-15,Expense,,Ontario Flower Growers,Weekly stems,435.20
+2026-09-16,Sales Receipt,1074,Daily sales,Bouquets,704.28
+2026-09-17,Sales Receipt,1075,Daily sales,Bouquets,639.06
+2026-09-18,Sales Receipt,1076,Daily sales,Bouquets,468.17
+2026-09-19,Sales Receipt,1077,Daily sales,Bouquets,755.12
+2026-09-20,Sales Receipt,1078,Daily sales,Bouquets,507.85
+2026-09-22,Sales Receipt,1079,Daily sales,Bouquets,526.04
+2026-09-22,Expense,,Ontario Flower Growers,Weekly stems,488.18
+2026-09-23,Sales Receipt,1080,Daily sales,Bouquets,550.88
+2026-09-24,Sales Receipt,1081,Daily sales,Bouquets,542.14
+2026-09-25,Sales Receipt,1082,Daily sales,Bouquets,470.96
+2026-09-26,Sales Receipt,1083,Daily sales,Bouquets,478.09
+2026-09-27,Sales Receipt,1084,Daily sales,Bouquets,642.30
